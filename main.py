@@ -12,8 +12,18 @@ sys.path.append(str(project_root))
 
 app = FastAPI()
 
+class ProductInput(BaseModel):
+    title: str
+    description: str
+    brand: str
+    price: float
+    features: list[str]
+
+    class Config:
+        extra = "ignore"
+        
 @app.post("/predict")
-def predict_product_category(product: dict):  
+def predict_product_category(product: ProductInput):  
     """
     Input: dictionary that contains all the characteristics of an Amazon product.
     Output: dictionary with the predicted category of the inputed product.
@@ -22,7 +32,7 @@ def predict_product_category(product: dict):
     applies cleaning, processing, and prediction pipeline,
     and returns the predicted category.
     """
-    predicted_category = predict_category(product)
+    predicted_category = predict_category(product.dict())
 
     return {"predicted_category": predicted_category}
 

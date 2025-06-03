@@ -56,28 +56,29 @@ Interactive Docs (Swagger UI): http://localhost:8000/docs - Suggested for more i
     If you are in the Swager UI follow these steps to interact:
     1. Click 'Post' and then 'Try it out' 
     2. A white box will appeared where you can add the product data, for example:
-        ```json
-        {
-        "title": "PURINA Dog Chow Adult Dog Food",
-        "description": "Complete dry food for adult dogs with chicken flavor.",
-        "brand": "Purina",
-        "price": 24.99,
-        "features": [
-            "Balanced formula with essential vitamins",
-            "Supports immune system",
-            "Size: 14 kg"
-        ]
-        }
-        ```
+     
+    {
+    "title": "PURINA Dog Chow Adult Dog Food",
+    "description": "Complete dry food for adult dogs with chicken flavor.",
+    "brand": "Purina",
+    "price": 24.99,
+    "features": [
+        "Balanced formula with essential vitamins",
+        "Supports immune system",
+        "Size: 14 kg"
+    ]
+    }
+     
     3. Click 'Execute'
     4. The predicted class will appear in the 'Response body'. Following the previous example:
-        ```json
+        
         {
         "predicted_category": "Pet Supplies"
         }
-        ```
 
 Alternative Docs (ReDoc): http://localhost:8000/redoc
+
+**Note**: This app does not include training code, as the model is already trained. Only inference is needed for testing.
 
 
 ## Dataset Description
@@ -242,20 +243,20 @@ This section summarizes the performance of the final multi-class classification 
 These results suggest that certain minority or generic classes are harder to predict reliably, likely due to data imbalance or overlapping features.
 
 **Pros:**
-- Good overall accuracy (78%) on a diverse and large dataset.
-- High precision and recall for well-defined product categories like: Amazon Fashion (F1 = 0.96), Pet Supplies (F1 = 0.91) and Video Games (F1 = 0.89).
+- Good overall accuracy (`78%`) on a diverse and large dataset.
+- High precision and recall for well-defined product categories like: Amazon Fashion (F1 = `0.96`), Pet Supplies (F1 = `0.91`) and Video Games (F1 = `0.89`).
 - Minimal class confusion, as shown by the sparse off-diagonal values in the confusion matrix.
 - Scalable approach: The current pipeline can handle a large volume of samples efficiently.
-- Modular design, allowing easy experimentation with different vectorization or model techniques (e.g. TF-IDF → sentence embeddings).
+- Modular design, allowing easy experimentation with different vectorization or model technique.
 
 **Cons / Limitations:**
 - Low recall for some categories, especially:
-    - All Electronics (Recall = 0.38)
-    - Other (Recall = 0.43)
+    - All Electronics (Recall = `0.38`)
+    - Other (Recall = `0.43`)
 
 - Poor precision for ambiguous classes, notably:
     - Other (Precision = 0.33), likely due to overlapping textual descriptions.
-- TF-IDF limitations: While effective, this method doesn’t capture semantic meaning across different product titles and descriptions. A move to pretrained embeddings (e.g., SentenceTransformers) might improve this.
+- TF-IDF limitations: While effective, this method doesn’t capture semantic meaning across different product titles and descriptions. A move to pretrained embeddings (for example, SentenceTransformers) might improve this.
 
 ## Questions & Answers
 Answer the following questions:
@@ -263,7 +264,7 @@ Answer the following questions:
     If I needed to predict the original main_cat categories (instead of the grouped main_cat_grouped), I would address the significant class imbalance and sparsity challenges.
     - Class balancing techniques: I would explore data augmentation or oversampling methods like SMOTE, or under-sampling the majority classes, to improve generalization for underrepresented categories
     - Hierarchical classification: Since many product categories are nested or hierarchical, I would explore a two-stage model: first predicting high-level categories (like in main_cat_grouped), and then a second model to predict the fine-grained main_cat.
-    - Model architecture: I would experiment with more expressive models (e.g., deep learning classifiers like BERT-based models) to better handle nuanced class distinctions and text variability.
+    - Model architecture: I would experiment with more expressive models (for example deep learning classifiers like BERT-based models) to better handle nuanced class distinctions and text variability.
 
 2. How would you deploy this API on the cloud?
     To deploy the API on the cloud, I would follow these steps:
@@ -271,18 +272,18 @@ Answer the following questions:
     2. Containerize: Since the API is already Dockerized, I would push the image to a container registry (for example, Docker Hub).
     3. Deploy and scale: Use a managed container service to deploy the container.
     4. Monitoring: Use integrated tools to track performance, request errors, and latency.
-    5. Security: Add authentication to protect the API (e.g., using API keys or OAuth2).
+    5. Security: Add authentication to protect the API (for exmaple using API keys or OAuth2).
     6. CI/CD: Integrate GitHub Actions or similar tools for automatic testing and deployment.
 
 3. If this model was deployed to categorize products without any supervision which metrics would you check to detect data drifting? When would you need to retrain?
 
     To monitor for data drift, I would:
 
-    - Use statistical tests (e.g., KS test, Jensen-Shannon divergence) or tools like evidently to compare distributions of incoming data (e.g., TF-IDF embeddings or SentenceTransformer vectors) with training data.
+    - Use statistical tests  or tools like evidently to compare distributions of incoming data (like TF-IDF embeddings or SentenceTransformer vectors) with training data.
     - Track confidence scores of model predictions. A significant drop in confidence over time may signal unfamiliar inputs.
     - Monitor if the frequency of predicted categories shifts significantly compared to training data.
 
-    I would need to retrain in 2 situations:¡
+    I would need to retrain in 2 situations:
     1. If manual reviews or shadow deployments indicate a drop in accuracy or precision/recall on key classes.
     2. Significant data drift: If monitored drift metrics exceed thresholds.
 
