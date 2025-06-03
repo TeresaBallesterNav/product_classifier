@@ -1,6 +1,6 @@
 # Product Classification
 
-The technical assignment consist og building a model to classify products into their categories according to their features. After the model is trained and built, then build an API so that the model can be tested easily.
+The technical assignment consists of building a model to classify products into their respective categories based on their features. Once the model is trained and evaluated, the next step is to build an API to allow easy and efficient testing of the model through HTTP requests.
 
 ## Table of Contents
 
