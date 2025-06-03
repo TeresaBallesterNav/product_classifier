@@ -9,8 +9,6 @@ The technical assignment consist og building a model to classify products into t
 3. [Usage](#usage)
 4. [Dataset Description](#dataset-description)
 5. [Model Overview](#model-overview)
-  - [Methodology Overview](#methodology-overview)
-  - [Final Model](#final-model)
 6. [Questions & Answers](#questions--answers)
 7. [Task Description](#task-description)
 8. [Contact](#contact)
