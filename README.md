@@ -1,6 +1,5 @@
 # Product Classification
 
-<<<<<<< HEAD
 The technical assignment consists of building a model to classify products into their respective categories based on their features. Once the model is trained and evaluated, the next step is to build an API to allow easy and efficient testing of the model through HTTP requests.
 
 ## Table of Contents
@@ -81,9 +80,6 @@ Alternative Docs (ReDoc): http://localhost:8000/redoc
 
 **Note**: This app does not include training code, as the model is already trained. Only inference is needed for testing.
 
-=======
-In this test we ask you to build a model to classify products into their categories according to their features.
->>>>>>> 879877f1a75591aef20f70871800e37d0b8ef339
 
 ## Dataset Description
 
@@ -158,7 +154,6 @@ def parse(path):
         yield json.loads(l)
 ```
 
-<<<<<<< HEAD
 ## Model Overview
 This project aims to classify Amazon products into relevant categories based on their textual attributes (title, description, brand, etc.). The process involved several well-structured stages to ensure data quality and robust model performance.
 
@@ -292,8 +287,6 @@ Answer the following questions:
     1. If manual reviews or shadow deployments indicate a drop in accuracy or precision/recall on key classes.
     2. Significant data drift: If monitored drift metrics exceed thresholds.
 
-=======
->>>>>>> 879877f1a75591aef20f70871800e37d0b8ef339
 
 ## Task description
 
@@ -311,13 +304,5 @@ libraries you need (for example huggingface).
     - API design and architecture.
     - A clear understanding of the model performance, strengths and weak points.
 
-<<<<<<< HEAD
  ## Contact
  For any further doubts or questions, please reach me out at: teresaballesternavarro@gmail.com
-=======
-- Answer the following questions:
-	- What would you change in your solution if you needed to predict all the categories?
-    - How would you deploy this API on the cloud?
-	- If this model was deployed to categorize products without any supervision which metrics would you check to detect data drifting? When would you need to retrain?
-
->>>>>>> 879877f1a75591aef20f70871800e37d0b8ef339

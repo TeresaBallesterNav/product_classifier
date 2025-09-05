@@ -13,3 +13,5 @@ joblib
 fastapi
 pydantic
 uvicorn  
+xgboost
+glob

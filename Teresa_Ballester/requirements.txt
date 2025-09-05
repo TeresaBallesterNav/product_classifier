@@ -1,0 +1,15 @@
+pandas
+matplotlib
+seaborn
+tqdm
+pyarrow
+fastparquet
+scikit-learn
+bs4
+transformers
+torch
+sentence-transformers
+joblib
+fastapi
+pydantic
+uvicorn  
