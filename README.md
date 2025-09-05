@@ -287,22 +287,3 @@ Answer the following questions:
     1. If manual reviews or shadow deployments indicate a drop in accuracy or precision/recall on key classes.
     2. Significant data drift: If monitored drift metrics exceed thresholds.
 
-
-## Task description
-
-- You should create a model that predicts `main_cat` using any of the other fields except `category` list. The model should be developed in python, you can use any pre-trained models and thirdparty 
-libraries you need (for example huggingface).
-
-- You should create a HTTP API endpoint that is capable of performing inference and return the predicted `main_cat` when receiving the rest of product fields.
-
-- Both the training code (if needed) and the inference API should be dockerized and easy for us to run and test locally. **Only docker build and docker run commands should be necessary to perform training or setting up the inference API**.
-
-- You should also provide a detailed analysis of the performance of your model. **In this test we're not looking for the best model performance but we expect a good understanding of your solution performance and it's limitations**.
-
-- We will value:
-    - Code cleanliness and good practices.
-    - API design and architecture.
-    - A clear understanding of the model performance, strengths and weak points.
-
- ## Contact
- For any further doubts or questions, please reach me out at: teresaballesternavarro@gmail.com
